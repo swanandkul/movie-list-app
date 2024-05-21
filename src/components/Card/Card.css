@@ -1,0 +1,89 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem; /* Reduced gap between cards */
+  padding: 2rem;
+  background-color: #f5f5f5;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: calc(25% - 0.75rem * 2); /* Adjusted width to fit 4 cards in a row */
+  margin-bottom: 1rem; /* Reduced margin between rows */
+  background-color: #ffffff;
+  color: #0a0a0a;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.card-content {
+  padding: 0.75rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-details {
+  margin-top: 0.75rem;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.card-year,
+.card-rating,
+.card-director,
+.card-cast,
+.card-genres,
+.card-overview {
+  font-size: 0.875rem;
+  margin: 0.5rem 0.5rem;
+}
+
+.card-overview {
+  color: #080808;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-container {
+    padding: 1rem; /* Adjusted padding for smaller screens */
+    gap: 0.5rem; /* Further reduced gap for smaller screens */
+  }
+
+  .card {
+    width: calc(50% - 0.5rem * 2); /* 2 cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: calc(100% - 1rem * 2); /* 1 card per row on even smaller screens */
+    margin-bottom: 0.5rem; /* Reduced margin for single row */
+  }
+}

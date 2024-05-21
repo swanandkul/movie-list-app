@@ -1,0 +1,38 @@
+.genres-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px; /* Adjust the gap between blocks */
+  margin: 5px 20px;
+}
+
+.genre-block {
+  display: inline-block;
+  padding: 10px 10px;
+
+  background-color: #0073ff;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.genre-block:hover {
+  background-color: #0056b3;
+}
+
+.genre-block.selected {
+  background-color: #ffc107;
+  color: black;
+}
+
+@media (max-width: 768px) {
+  .genre-block {
+    padding: 8px 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .genre-block {
+    padding: 6px 8px;
+  }
+}
