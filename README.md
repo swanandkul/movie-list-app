@@ -3,6 +3,7 @@
 A web application that displays a list of movies and allows users to filter them by genre.
 
 # Live Link
+https://swanandkul.github.io/movie-list-app/
 
 ### Prerequisites
 
