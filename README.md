@@ -1,8 +1,46 @@
-# React + Vite
+# Movie List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application that displays a list of movies and allows users to filter them by genre.
 
-Currently, two official plugins are available:
+# Live Link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+
+- Node.js
+- npm or yarn
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/swanandkul/movie-list-app.git
+
+# Install Dependencies
+cd movie-list-app
+npm install
+# or
+yarn install
+
+# Usage
+npm run dev
+# or
+yarn dev
+
+# Build for production
+npm run build
+# or
+yarn build
+
+# Features
+Display a list of movies.
+Filter movies by genre.
+Fetch movie data from an external API.
+
+# Dependencies
+React
+Vite
+Axios
+
+# Contact Information
+Author: Swanand Kulkarni
+Email: kulswanand07@gmail.com
+```

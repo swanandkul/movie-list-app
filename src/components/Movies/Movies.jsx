@@ -25,6 +25,7 @@ const Movies = () => {
   const genreforURL = useGenre(selectedGenres);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [scrollDirection, setScrollDirection] = useState("");
 
   const API_KEY = import.meta.env.VITE_API_KEY;
   const BASE_API_URL = import.meta.env.VITE_BASE_API_URL;
@@ -59,7 +60,13 @@ const Movies = () => {
         })
       );
 
-      setMovies(moviesWithDetails);
+      if (year < 2012) {
+        setMovies((prev) => [...moviesWithDetails, ...prev]);
+      } else if (year > 2012) {
+        setMovies((prev) => [...prev, ...moviesWithDetails]);
+      } else {
+        setMovies(moviesWithDetails);
+      }
     } catch (error) {
       console.error("Failed to fetch movies:", error);
       setError("Failed to load movies");
@@ -77,8 +84,10 @@ const Movies = () => {
       window.innerHeight + document.documentElement.scrollTop + 1 >=
       document.documentElement.scrollHeight
     ) {
+      setScrollDirection("down");
       setYear((prev) => prev + 1);
     } else if (document.documentElement.scrollTop <= 1) {
+      setScrollDirection("up");
       setYear((prev) => prev - 1);
     }
   }, []);
@@ -107,15 +116,16 @@ const Movies = () => {
   return (
     <>
       <Header />
-      <nav className="navbar">
+      <div>
         <Genres
           selectedGenres={selectedGenres}
           setSelectedGenres={setSelectedGenres}
           genres={genres}
           setGenres={setGenres}
         />
-      </nav>
+      </div>
       <div className="card-container">
+        {loading && <Spinner scrollDirection={scrollDirection} />}
         {moviesWithGenres.length > 0 ? (
           moviesWithGenres.map((movie, index) => (
             <Card
@@ -130,11 +140,12 @@ const Movies = () => {
               genres={movie.genres}
             />
           ))
+        ) : loading ? (
+          <Spinner />
         ) : (
           <p>No Movies Found!</p>
         )}
       </div>
-      {loading && <Spinner />}
       {error && <p className="error-message">{error}</p>}
     </>
   );
